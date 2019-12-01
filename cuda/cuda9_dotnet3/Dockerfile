@@ -2,7 +2,8 @@ FROM nvidia/cuda:9.2-cudnn7-runtime-ubuntu18.04
 
 RUN apt-get update && apt-get install -y \
     sudo \
-    wget
+    wget \
+    software-properties-common
 
 # install .Net Core SDK
 # https://docs.microsoft.com/en-us/dotnet/core/install/linux-package-manager-ubuntu-1804
