@@ -14,13 +14,15 @@ RUN wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsof
 
 RUN add-apt-repository universe && \
     apt-get update && apt-get install -y \
-    apt-transport-https \
-    python3-pip
+    apt-transport-https
+
 RUN apt-get update && apt-get install -y \
     dotnet-sdk-3.1 \
+    python3-pip \
+    unzip \
     && rm -rf /var/lib/apt/lists/*
 
-COPY ../requirements.txt ./
+COPY ./requirements.txt ./
 
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
