@@ -14,7 +14,8 @@ RUN wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsof
 
 RUN add-apt-repository universe && \
     apt-get update && apt-get install -y \
-    apt-transport-https 
+    apt-transport-https \
+    python3-pip
 RUN apt-get update && apt-get install -y \
     dotnet-sdk-3.1 \
     && rm -rf /var/lib/apt/lists/*
