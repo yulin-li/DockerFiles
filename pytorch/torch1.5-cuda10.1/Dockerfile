@@ -1,15 +1,15 @@
-FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
-ARG PYTHON_VERSION=3.7
+FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
+ARG PYTHON_VERSION=3.8
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-         build-essential \
-         cmake \
-         git \
-         curl \
-         ca-certificates \
-         libjpeg-dev \
-         libpng-dev && \
-     rm -rf /var/lib/apt/lists/*
+        build-essential \
+        cmake \
+        git \
+        curl \
+        ca-certificates \
+        libjpeg-dev \
+        libpng-dev && \
+    rm -rf /var/lib/apt/lists/*
 
 
 RUN curl -o ~/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
@@ -22,7 +22,7 @@ RUN curl -o ~/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest
 ENV PATH /opt/conda/bin:$PATH
 
 RUN pip install --no-cache-dir pandas tqdm && \
-     pip install --no-cache-dir torch==1.4.0+cu100 torchvision==0.5.0+cu100 -f https://download.pytorch.org/whl/torch_stable.html
+    pip install --no-cache-dir torch==1.5.0+cu101 torchvision==0.6.0+cu101 -f https://download.pytorch.org/whl/torch_stable.html
 
 WORKDIR /workspace
 RUN chmod -R a+w .
