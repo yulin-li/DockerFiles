@@ -1,5 +1,5 @@
 FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
-ARG PYTHON_VERSION=3.8
+ARG PYTHON_VERSION=3.7
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
