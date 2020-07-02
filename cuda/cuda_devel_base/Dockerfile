@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
          sox \
          sudo \
          software-properties-common \
-         python3-pip
+         python3-pip \
+         unzip
 
 # Install Open MPI
 ENV OPENMPI_VERSIONBASE=4.0
