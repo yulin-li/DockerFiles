@@ -45,5 +45,8 @@ RUN add-apt-repository universe && \
     dotnet-sdk-3.1 \
     && rm -rf /var/lib/apt/lists/*
 
+RUN python3 -mpip install --upgrade pip && \
+    python3 -mpip install --no-cache-dir -r requirements.txt
+
 WORKDIR /home/job/
 RUN chmod -R a+w .
