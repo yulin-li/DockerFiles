@@ -53,5 +53,7 @@ RUN python3 -mpip install --upgrade pip && \
     python3 -mpip install --no-cache-dir -r requirements.txt && \
     rm -rf requirements.txt
 
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
 WORKDIR /home/job/
 RUN chmod -R a+w .
