@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libsqlite3-dev \
         wget && rm -rf /var/lib/apt/lists/*
 
-RUN wget https://cmake.org/files/v3.19/cmake-3.19.2.tar.gz \
+RUN wget --no-check-certificate https://cmake.org/files/v3.19/cmake-3.19.2.tar.gz \
         && tar xf cmake-3.19.2.tar.gz && \
         cd cmake-3.19.2 && \
         ./configure && \
