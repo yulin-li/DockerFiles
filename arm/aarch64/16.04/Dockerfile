@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         wget && rm -rf /var/lib/apt/lists/*
 
 RUN wget https://cmake.org/files/v3.19/cmake-3.19.2.tar.gz \
-        && tar xf cmake-3.8.2.tar.gz && \
+        && tar xf cmake-3.19.2.tar.gz && \
         cd cmake-3.19.2 && \
         ./configure && \
         sudo make install -j8 && cd .. && rm -rf cmake-3.19*
