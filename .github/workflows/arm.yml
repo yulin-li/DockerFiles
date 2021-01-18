@@ -39,5 +39,5 @@ jobs:
         file: arm/aarch64/${{ matrix.version }}/Dockerfile
         tags: drhippo/aarch64:${{ matrix.version }}
         push: ${{ github.ref == 'refs/heads/master' }}
-        cache-from: type=local,src=/tmp/.buildx-cache
-        cache-to: type=local,dest=/tmp/.buildx-cache
+        cache-from: type=local,src=/tmp/${{ matrix.version }}/.build-cache
+        cache-to: type=local,dest=/tmp/${{ matrix.version }}/.build-cache
