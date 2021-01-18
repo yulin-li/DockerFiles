@@ -2,11 +2,14 @@ name: Docker Image CI
 
 on:
   push:
-    paths:
-      - 'aarch64/'
     branches: [ master ]
   pull_request:
+    paths:
+      - 'arm/'
+      - '.github/workflows/arm.yml'
     branches: [ master ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 env:
   DOCKER_USERNAME: drhippo
@@ -41,5 +44,5 @@ jobs:
         file: arm/aarch64/${{ matrix.version }}/Dockerfile
         tags: drhippo/aarch64:${{ matrix.version }}
         push: ${{ github.ref == 'refs/heads/master' }}
-        cache-from: type=local,src=/tmp/${{ matrix.version }}/.build-cache
-        cache-to: type=local,dest=/tmp/${{ matrix.version }}/.build-cache
+        cache-from: type=local,src=/tmp/${{ matrix.version }}/.buildx-cache
+        cache-to: type=local,dest=/tmp/${{ matrix.version }}/.buildx-cache
