@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libsqlite3-dev \
         alsa \
         libasound2-dev \
+        pkg-config \
         wget && rm -rf /var/lib/apt/lists/*
 
 ENV CMAKE_VERSION=3.19.3

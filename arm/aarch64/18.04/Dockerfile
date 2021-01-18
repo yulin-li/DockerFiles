@@ -1,4 +1,4 @@
-FROM arm64v8/ubuntu:18.04
+FROM arm64v8/ubuntu:${BASE_VERSION}
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         sudo \
@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libsqlite3-dev \
         alsa \
         libasound2-dev \
+        pkg-config \
         wget && \
         rm -rf /var/lib/apt/lists/*
 
