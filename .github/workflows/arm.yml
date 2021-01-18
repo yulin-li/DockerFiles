@@ -38,6 +38,6 @@ jobs:
         context: arm/aarch64/${{ matrix.version }}/
         file: arm/aarch64/${{ matrix.version }}/Dockerfile
         tags: drhippo/aarch64:${{ matrix.version }}
-        push: true
+        push: ${{ github.ref == 'refs/heads/master' }}
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache

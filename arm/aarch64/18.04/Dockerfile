@@ -1,3 +1,5 @@
+ARG CMAKE_VERSION="3.19.3"
+
 FROM arm64v8/ubuntu:18.04
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -19,8 +21,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         wget && \
         rm -rf /var/lib/apt/lists/*
 
-RUN wget --no-check-certificate https://cmake.org/files/v3.19/cmake-3.19.2.tar.gz \
-        && tar xf cmake-3.19.2.tar.gz && \
-        cd cmake-3.19.2 && \
+RUN wget --no-check-certificate https://cmake.org/files/v${CMAKE_VERSION%.*}/cmake-${CMAKE_VERSION}.tar.gz \
+        && tar xf cmake-${CMAKE_VERSION}.tar.gz && \
+        cd cmake-${CMAKE_VERSION} && \
         ./configure && \
-        sudo make install -j8 && cd .. && rm -rf cmake-3.19*
+        sudo make install -j8 && cd .. && rm -rf cmake-${CMAKE_VERSION}*
