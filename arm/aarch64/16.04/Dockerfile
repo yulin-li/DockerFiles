@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         pkg-config \
         wget && rm -rf /var/lib/apt/lists/*
 
-ENV CMAKE_VERSION=3.19.3
+ENV CMAKE_VERSION=3.20.2
 RUN wget --no-check-certificate https://cmake.org/files/v${CMAKE_VERSION%.*}/cmake-${CMAKE_VERSION}.tar.gz \
         && tar xf cmake-${CMAKE_VERSION}.tar.gz && \
         cd cmake-${CMAKE_VERSION} && \

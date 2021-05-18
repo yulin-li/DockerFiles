@@ -1,4 +1,4 @@
-FROM arm64v8/ubuntu:18.04
+FROM arm32v7/ubuntu:16.04
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         sudo \
@@ -17,8 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         alsa \
         libasound2-dev \
         pkg-config \
-        wget && \
-        rm -rf /var/lib/apt/lists/*
+        wget && rm -rf /var/lib/apt/lists/*
 
 ENV CMAKE_VERSION=3.20.2
 RUN wget --no-check-certificate https://cmake.org/files/v${CMAKE_VERSION%.*}/cmake-${CMAKE_VERSION}.tar.gz \
