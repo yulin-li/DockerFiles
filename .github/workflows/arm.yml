@@ -21,11 +21,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        abi: [aarch64]
+        abi: [aarch64, armv7]
         version: [16.04, 16.04-gcc6, 18.04]
-        include:
+        exclude:
           - abi: armv7
-            version: 16.04
+            version: 16.04-gcc6
 
     steps:
     - uses: actions/checkout@v2
