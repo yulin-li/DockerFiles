@@ -3,7 +3,14 @@ FROM nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04
 RUN apt-get update && apt-get install -y \
     sudo \
     wget \
-    software-properties-common
+    software-properties-common \
+    nano \
+    python3-pip \
+    libsndfile-dev
+
+RUN python3 -mpip install --upgrade pip && \
+    python3 -mpip install --no-cache-dir -r requirements.txt && \
+    rm -rf requirements.txt
 
 # install .Net Core SDK
 # https://docs.microsoft.com/en-us/dotnet/core/install/linux-package-manager-ubuntu-1804
