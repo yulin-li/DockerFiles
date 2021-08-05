@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Ubuntu ARM Build
 
 on:
   push:
@@ -22,10 +22,7 @@ jobs:
     strategy:
       matrix:
         abi: [aarch64, armv7]
-        version: [16.04, 16.04-gcc6, 18.04]
-        exclude:
-          - abi: armv7
-            version: 16.04-gcc6
+        version: [18.04]
 
     steps:
     - uses: actions/checkout@v2
